@@ -65,6 +65,18 @@
         #menu a.active:hover {
             background: #3074a4;
         }
+
+        .map-overlay {
+            position: absolute;
+            left: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
     </style>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
 </head>
@@ -72,6 +84,9 @@
 <body>
     <nav id="menu"></nav>
     <div id='map'></div>
+    <div class='map-overlay'>
+        <h1>Lower Seattle & Bellevue Hospitals</h1>
+    </div>
     <script type="text/javascript">
         mapboxgl.accessToken =
             'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
@@ -100,7 +115,7 @@
                 ],
                 'tileSize': 256,
 
-                'attribution': 'Map tiles designed by Abi Chinn'
+                'attribution': 'Map tiles designed by Abi Chinn | Hospital Data: Homeland Infrastructure Foundation-Level Data'
             });
 
             map.addSource('hospitals-tiles', {
@@ -110,7 +125,7 @@
                 ],
                 'tileSize': 256,
 
-                'attribution': 'Map tiles designed by Abi Chinn'
+                'attribution': 'Map tiles designed by Abi Chinn | Hospital Data: Homeland Infrastructure Foundation-Level Data'
             });
 
             map.addSource('hospcare-tiles', {
